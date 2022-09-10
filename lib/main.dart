@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:page_ui/login_screen.dart';
+import 'package:page_ui/registration_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,6 +21,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.white
       ),
       home: MyHomePage(),
+
     );
   }
 }
@@ -86,7 +89,10 @@ class MyHomePage extends StatelessWidget {
                       primary: Colors.redAccent, // background
                       onPrimary: Colors.white // foreground
                       ),
-                  onPressed: () {},
+                  onPressed: () {
+
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => registration()),);
+                  },
                   child: const Text("Getting Started"),
                 ),
               ),
@@ -108,7 +114,7 @@ class MyHomePage extends StatelessWidget {
                           ),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              print('Login Text Clicked');
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => login()),);
                             }),
                     ]),
                   ),
